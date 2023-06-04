@@ -30,7 +30,6 @@ class Tracker:
 
                 if dist < 35:
                     self.center_points[id] = (cx, cy)
-#                    print(self.center_points)
                     objects_bbs_ids.append([x, y, w, h, id])
                     same_object_detected = True
                     break
@@ -106,36 +105,31 @@ while True:
         result2 = cv2.pointPolygonTest(np.array(area2, np.int32), ((x3, y3)), False)
         if result1 > 0:
             area_1.add(id)
-            obj_name = str(rows['name'])
-            if id in vehicle_counts:
-                if obj_name in vehicle_counts[id]:
-                    vehicle_counts[id][obj_name] += 1
-                else:
-                    vehicle_counts[id][obj_name] = 1
-            else:
-                vehicle_counts[id] = {obj_name: 1}
         if result2 > 0:
             area_2.add(id)
 
-    cv2.polylines(frame, [np.array(area1, np.int32)], True, (255, 0, 255), 2)
-    cv2.polylines(frame, [np.array(area2, np.int32)], True, (255, 0, 255), 2)
+    area1_mask = np.zeros_like(frame)
+    area2_mask = np.zeros_like(frame)
+    transparency = 0.4  # Adjust the transparency level (0.0-1.0)
+    color = (255, 0, 0)  # Blue color
+    cv2.fillPoly(area1_mask, [np.array(area1, np.int32)], color)  # Fill area1 mask with blue color
+    cv2.fillPoly(area2_mask, [np.array(area2, np.int32)], color)  # Fill area2 mask with blue color
+    frame = cv2.addWeighted(frame, 1, area1_mask, transparency, 0)
+    frame = cv2.addWeighted(frame, 1, area2_mask, transparency, 0)
 
     a1 = len(area_1)
     a2 = len(area_2)
 
     # Store the values in the results dictionary for the current frame
-    frame_results = {"a1": a1, "a2": a2, "vehicle_counts": vehicle_counts}
+    frame_results = {"frame_number": count, "a1": a1, "a2": a2}
     results_dict["frames"].append(frame_results)
 
-    cv2.putText(frame, str(a1), (549, 465), cv2.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 2)
-    cv2.putText(frame, str(a2), (800, 410), cv2.FONT_HERSHEY_PLAIN, 2, (255, 0, 0), 2)
+    cv2.putText(frame, f"Frame: {count}", (10, 30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
+    cv2.putText(frame, f"a1: {a1}", (10, 60), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
+    cv2.putText(frame, f"a2: {a2}", (10, 90), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
 
     cv2.imshow("FRAME", frame)
     out.write(frame)
-
-    # Save the results dictionary to a JSON file
-    with open('output.json', 'w') as json_file:
-        json.dump(results_dict, json_file)
 
     if cv2.waitKey(0) & 0xFF == 27:
         break
@@ -143,3 +137,8 @@ while True:
 out.release()
 cap.release()
 cv2.destroyAllWindows()
+
+# Save the values of a1 and a2 in the output.json file
+output_dict = {"a1": a1, "a2": a2}
+with open('output.json', 'w') as json_file:
+    json.dump(output_dict, json_file)
