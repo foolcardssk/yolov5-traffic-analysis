@@ -138,7 +138,28 @@ out.release()
 cap.release()
 cv2.destroyAllWindows()
 
-# Save the values of a1 and a2 in the output.json file
-output_dict = {"a1": a1, "a2": a2}
+# Determine the traffic density levels
+high_threshold = 0.8
+medium_threshold = 0.4
+
+area1_density = len(area_1) / count
+area2_density = len(area_2) / count
+
+if area1_density > high_threshold:
+    area1_density_level = "High"
+elif area1_density > medium_threshold:
+    area1_density_level = "Medium"
+else:
+    area1_density_level = "Low"
+
+if area2_density > high_threshold:
+    area2_density_level = "High"
+elif area2_density > medium_threshold:
+    area2_density_level = "Medium"
+else:
+    area2_density_level = "Low"
+
+# Save the traffic density levels in the output.json file
+output_dict = {"a1": a1, "a2": a2, "a1_density": area1_density_level, "a2_density": area2_density_level}
 with open('output.json', 'w') as json_file:
     json.dump(output_dict, json_file)
