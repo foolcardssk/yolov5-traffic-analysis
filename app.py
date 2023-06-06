@@ -161,5 +161,5 @@ else:
 
 # Save the traffic density levels in the output.json file
 output_dict = {"a1": a1, "a2": a2, "a1_density": area1_density_level, "a2_density": area2_density_level}
-with open('output.json', 'w') as json_file:
+with open('./template/output.json', 'w') as json_file:
     json.dump(output_dict, json_file)

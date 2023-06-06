@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJBr93YrX3QMhXguT6BlhujoMR8nAI7bk"></script>
+</head>
+<body onload="initMap()">  
+    <header>
+        <div id="disp-fl-nav">
+            <div class="toggle-btn" onclick="Dropfunction();">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+               <a href="index.html"><p>Traffic<br> &ensp; Visualizer</p></a>
+            </div>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">AboutUs</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="das-hed">
+        <p>Dashboard</p>
+    </div>
+        <div class="container">
+            <div id='map'></div>
+            <!-- <button id="scrollTopBtn" onclick="scrollToTop()"><i class="fa-solid fa-circle-up fa-fade"></i></button> -->
+            <div id="status-cards">
+                <div id="vid-div">
+                    <video autoplay muted loop>
+                        <source src="highway.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div id="con-cards">
+                    <span class="desc">Traffic level towards Darmstadt: &ensp;<b><span id="trf-level1"></span></b></span>
+                    <span class="desc">Traffic level towards Frankfurt am Main: &ensp;<b><span id="trf-level2"></span></b></span>
+                    <span class="desc">Vechicle count towards Darmstadt: &ensp;<b><span id="veh-cnt1"></span></b></span>
+                    <span class="desc">Vechicle count towards Frankfurt am Main: &ensp;<b><span id="veh-cnt2"></span></b></span>
+                    <span class="desc">Vehicles crossed: &ensp;<b><span id="tot-cnt"></span></b></span>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2023 Baked with ❤️ by <a href="#"><strong style="color: rgb(196, 227, 19);">CogWind.ai</strong></a></p>
+        </footer>
+    </div>
+</body>
+</html>
