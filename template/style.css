@@ -4,6 +4,7 @@
     box-sizing: border-box;
     outline: none;
     text-decoration: none;
+    font-family: none;
 }
 html{
     min-height: 100vh;
@@ -425,7 +426,6 @@ footer{
     list-style:circle;
 }
 .sub-abt-con-1 > ul > li{
-    font-family: 'Ubuntu',sans-serif;
     font-size: 16px;
 }
 .sub-abt-con > p{
@@ -433,4 +433,38 @@ footer{
     font-size: 16px;
     font-family: 'Ubuntu', sans-serif;
     list-style: none;
+}
+
+/* contact.html */
+#cnt-con-p{
+    font-size: 18px;
+}
+#github{
+    margin-top: 30px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+#github > ul{
+    justify-content: center;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+}
+#github > ul > li{
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+}
+.fa-github{
+    color: #111927;
+    font-size: 20px;
+}
+.fa-envelope{
+    color: #111927;
+    font-size: 20px;
+}
+#cnt-con-p-end{
+    font-size: 15px;
+    margin-top: 30px;
 }
