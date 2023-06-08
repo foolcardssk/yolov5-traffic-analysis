@@ -426,6 +426,7 @@ footer{
     list-style:circle;
 }
 .sub-abt-con-1 > ul > li{
+    font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
 }
 .sub-abt-con > p{
