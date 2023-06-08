@@ -131,7 +131,7 @@ while True:
     cv2.imshow("FRAME", frame)
     out.write(frame)
 
-    if cv2.waitKey(0) & 0xFF == 27:
+    if cv2.waitKey(1) & 0xFF == 27:
         break
 
 out.release()

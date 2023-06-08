@@ -4,6 +4,7 @@
     box-sizing: border-box;
     outline: none;
     text-decoration: none;
+    font-family: none;
 }
 html{
     min-height: 100vh;
@@ -124,6 +125,8 @@ nav ul button:hover{
     font-weight: 500;
     color: #111927;
     font-size: 30px;
+    text-align: center;
+    font-weight: 600;
 }
 #map{
     height: 30em;
@@ -348,4 +351,120 @@ footer{
     .con-test-in p{
         font-size: 14px;
     }
+}
+
+/* aboutus.html */
+
+.cont{
+    display: block;
+    transition: display;
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+#sub-cont{
+    color: #111927;
+    width: 100%;
+    height: auto;
+}
+.abt-para-p{
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+.abt-para-p > p{
+    margin-top: 15px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.abt-para-span{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: 'Ubuntu', sans-serif;
+}
+#das-hed-abt{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    font-weight: 500;
+    color: #111927;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+#abt-con-2{
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+@media (max-width:700px){
+    #abt-con-2{
+        grid-template-columns: 1fr;
+    }
+}
+.sub-abt-con-1{
+    padding: 10px;
+}
+.sub-abt-con{
+    padding: 10px;
+}
+.sub-para-span{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.sub-abt-con-1 > ul{
+    margin-top: 15px;
+    line-height: 1.6em;
+    list-style:circle;
+}
+.sub-abt-con-1 > ul > li{
+    font-size: 16px;
+}
+.sub-abt-con > p{
+    margin-top: 15px;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    list-style: none;
+}
+
+/* contact.html */
+#cnt-con-p{
+    font-size: 18px;
+}
+#github{
+    margin-top: 30px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+#github > ul{
+    justify-content: center;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+}
+#github > ul > li{
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+}
+.fa-github{
+    color: #111927;
+    font-size: 20px;
+}
+.fa-envelope{
+    color: #111927;
+    font-size: 20px;
+}
+#cnt-con-p-end{
+    font-size: 15px;
+    margin-top: 30px;
 }
